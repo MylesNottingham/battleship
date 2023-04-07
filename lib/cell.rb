@@ -32,4 +32,14 @@ class Cell
       "TRY AGAIN!"
     end
   end
+
+  def render(reveal = false)
+    if @status == "S"
+      reveal ? "S" : "."
+    elsif @status == "H" && @ship.sunk?
+      "X"
+    else
+      @status
+    end
+  end
 end
