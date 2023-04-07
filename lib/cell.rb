@@ -6,15 +6,30 @@ class Cell
   def initialize(coordinate)
     @coordinate = coordinate
     @ship = nil
-    @status = "empty"
+    @status = "."
   end
 
   def empty?
-    @status == "empty"
+    @status == "."
   end
 
   def place_ship(ship)
     @ship = ship
-    @status = "occupied"
+    @status = "S"
+  end
+
+  def fired_upon?
+    @status == "M" || @status == "H"
+  end
+
+  def fire_upon
+    if @status == "."
+      @status = "M"
+    elsif @status == "S"
+      @status = "H"
+      @ship.hit
+    else
+      "TRY AGAIN!"
+    end
   end
 end
