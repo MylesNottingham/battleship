@@ -22,7 +22,7 @@ RSpec.describe Cell do
     end
 
     it "will return false if status is not empty" do
-      @cell.place_ship(cruiser)
+      @cell.place_ship(@cruiser)
       expect(@cell.status).to eq("occupied")
       expect(@cell.empty?).to eq(false)
     end
