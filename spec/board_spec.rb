@@ -42,11 +42,6 @@ RSpec.describe Board do
   end
 
   describe "#valid_placement?" do
-    it "will return true if ship length is equal to coordinate array length" do
-      expect(@board.valid_placement?(@cruiser, ["A2", "A3", "A4"])).to eq(true)
-      expect(@board.valid_placement?(@submarine, ["A1", "A2"])).to eq(true)
-    end
-
     it "will return false if ship length is not equal to coordinate array length" do
       expect(@board.valid_placement?(@cruiser, ["A1", "A2"])).to eq(false)
       expect(@board.valid_placement?(@submarine, ["A2", "A3", "A4"])).to eq(false)
@@ -62,6 +57,11 @@ RSpec.describe Board do
     it "will return false if coordinate array is diagonal" do
       expect(@board.valid_placement?(@cruiser, ["A1", "B2", "C3"])).to eq(false)
       expect(@board.valid_placement?(@submarine, ["C2", "D3"])).to eq(false)
+    end
+
+    it "will return false if cell is occupied by a ship" do
+      @board.place(@cruiser, ["A1", "A2", "A3"])
+      expect(@board.valid_placement?(@submarine, ["A1", "B1"])).to eq(false)
     end
 
     it "will return true if placement is valid" do
