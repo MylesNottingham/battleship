@@ -2556,7 +2556,7 @@ Metrics/CyclomaticComplexity:
   Description: >-
                  A complexity metric that is strongly correlated to the number
                  of test cases needed to validate a method.
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '0.81'
   AllowedMethods: []
@@ -2598,7 +2598,7 @@ Metrics/PerceivedComplexity:
   Description: >-
                  A complexity metric geared towards measuring complexity for a
                  human reader.
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '0.81'
   AllowedMethods: []
@@ -2914,7 +2914,7 @@ Naming/VariableName:
 Naming/VariableNumber:
   Description: 'Use the configured style when numbering symbols, methods and variables.'
   StyleGuide: '#snake-case-symbols-methods-vars-with-numbers'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.50'
   VersionChanged: '1.4'
   EnforcedStyle: snake_case
