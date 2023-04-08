@@ -6,16 +6,24 @@ RSpec.describe Board do
     @board = Board.new
   end
 
-  describe "board" do
+  describe "#initialize" do
     it "exists" do
       expect(@board).to be_a(Board)
     end
-  end
 
-  describe "#cells" do
-    it "can initialize a cell with attributes" do
+    it "instantiates with a board of 16 cells" do
       expect(@board.cells).to be_a(Hash)
       expect(@board.cells.count).to eq(16)
+    end
+  end
+
+  describe "#create_cells" do
+    it "creates a new board of 16 cells when called" do
+      expect(@board.cells).to be_a(Hash)
+      first_a1 = @board.cells["A1"]
+      @board.create_cells
+      expect(@board.cells).to be_a(Hash)
+      expect(@board.cells["A1"]).not_to eq(first_a1)
     end
   end
 

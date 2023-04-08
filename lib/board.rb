@@ -1,5 +1,6 @@
 class Board
   attr_reader :cells
+
   def initialize
     create_cells
   end
