@@ -41,4 +41,18 @@ class Board
 
     coordinates.each { |coordinate| @cells[coordinate].place_ship(ship) }
   end
+
+  def render(reveal = false)
+    rows = []
+    @cells.values.each_slice(4) { |cells| rows << cells }
+
+    columns = (1..(rows.count)).to_a.join(" ")
+
+    board_array = []
+    rows.each_with_index do |row, index|
+      board_array << "#{(65 + index).chr} #{row.map { |cell| cell.render(reveal) }.join(' ')} \n"
+    end
+
+    "  #{columns} \n#{board_array.join('')}"
+  end
 end
