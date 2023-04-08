@@ -69,4 +69,40 @@ RSpec.describe Board do
       expect(@board.valid_placement?(@submarine, ["B3", "B4"])).to eq(true)
     end
   end
+
+  describe "#place" do
+    it "will not place ship if coordinantes are invalid" do
+      expect(@board.cells["A5"]).to eq(nil)
+      expect(@board.cells["A6"]).to eq(nil)
+      expect(@board.cells["A7"]).to eq(nil)
+      @board.place(@cruiser, ["A5", "A6", "A7"])
+      expect(@board.cells["A5"]).to eq(nil)
+      expect(@board.cells["A6"]).to eq(nil)
+      expect(@board.cells["A7"]).to eq(nil)
+    end
+
+    it "will not place ship if placement is invalid" do
+      @board.place(@cruiser, ["A1", "B2", "C3"])
+      expect(@board.cells["A1"].ship).to eq(nil)
+      expect(@board.cells["B2"].ship).to eq(nil)
+      expect(@board.cells["C3"].ship).to eq(nil)
+    end
+
+    it "will place ship if coordinates and placement are valid" do
+      @board.place(@cruiser, ["A1", "A2", "A3"])
+      expect(@board.cells["A1"].ship).to eq(@cruiser)
+      expect(@board.cells["A2"].ship).to eq(@cruiser)
+      expect(@board.cells["A3"].ship).to eq(@cruiser)
+    end
+
+    it "placing ship will change cell state to 'S'" do
+      expect(@board.cells["A1"].status).to eq(".")
+      expect(@board.cells["A2"].status).to eq(".")
+      expect(@board.cells["A3"].status).to eq(".")
+      @board.place(@cruiser, ["A1", "A2", "A3"])
+      expect(@board.cells["A1"].status).to eq("S")
+      expect(@board.cells["A2"].status).to eq("S")
+      expect(@board.cells["A3"].status).to eq("S")
+    end
+  end
 end
