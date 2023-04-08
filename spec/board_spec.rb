@@ -3,6 +3,7 @@ require "spec_helper"
 RSpec.describe Board do
   before(:each) do
     @cruiser = Ship.new("Cruiser", 3)
+    @submarine = Ship.new("Submarine", 2)
     @board = Board.new
   end
 
@@ -37,6 +38,35 @@ RSpec.describe Board do
       expect(@board.valid_coordinate?("A5")).to eq(false)
       expect(@board.valid_coordinate?("E1")).to eq(false)
       expect(@board.valid_coordinate?("A22")).to eq(false)
+    end
+  end
+
+  describe "#valid_placement?" do
+    it "will return true if ship length is equal to coordinate array length" do
+      expect(@board.valid_placement?(@cruiser, ["A2", "A3", "A4"])).to eq(true)
+      expect(@board.valid_placement?(@submarine, ["A1", "A2"])).to eq(true)
+    end
+
+    it "will return false if ship length is not equal to coordinate array length" do
+      expect(@board.valid_placement?(@cruiser, ["A1", "A2"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["A2", "A3", "A4"])).to eq(false)
+    end
+
+    it "will return false if coordinate array is not consecutive" do
+      expect(@board.valid_placement?(@cruiser, ["A1", "A2", "A4"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["A1", "C1"])).to eq(false)
+      expect(@board.valid_placement?(@cruiser, ["A3", "A2", "A1"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["C1", "B1"])).to eq(false)
+    end
+
+    it "will return false if coordinate array is diagonal" do
+      expect(@board.valid_placement?(@cruiser, ["A1", "B2", "C3"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["C2", "D3"])).to eq(false)
+    end
+
+    it "will return true if placement is valid" do
+      expect(@board.valid_placement?(@cruiser, ["B1", "C1", "D1"])).to eq(true)
+      expect(@board.valid_placement?(@submarine, ["B3", "B4"])).to eq(true)
     end
   end
 end
