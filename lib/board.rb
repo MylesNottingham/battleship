@@ -18,5 +18,19 @@ class Board
   def valid_coordinate?(coordinate)
     @cells.keys.include?(coordinate)
   end
-end
 
+  def valid_placement?(ship, coordinates)
+    return false unless ship.length == coordinates.length
+
+    letters = coordinates.map { |coordinate| coordinate[0].ord }
+    nums = coordinates.map { |coordinate| coordinate[1].to_i }
+
+    if letters.all? { |letter| letter == letters.first }
+      nums.each_cons(2).all? { |a, b| b == a + 1 }
+    elsif nums.all? { |num| num == nums.first }
+      letters.each_cons(2).all? { |a, b| b == a + 1 }
+    else
+      false
+    end
+  end
+end
