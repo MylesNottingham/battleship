@@ -34,12 +34,20 @@
 
 
 
-test_array = ["A1", "B1", "C1",]
-letters = test_array.map { |coordinate| coordinate[0].ord }
+# test_array = [
+#   '#<Cell:0x00007f911dae23a0 @coordinate="A1", @ship=nil, @status=".">',
+#   '#<Cell:0x00007f911dae2300 @coordinate="A2", @ship=nil, @status=".">',
+#   '#<Cell:0x00007f911dae2170 @coordinate="A3", @ship=nil, @status=".">',
+#   '#<Cell:0x00007f911dae2080 @coordinate="A4", @ship=nil, @status=".">',
+# ]
 
-p letters
-p letters.each_cons(2).all? { |a, b| b == a + 1 }
+# letters = test_array.map { |coordinate| coordinate[0].ord }
 
+# p letters
+# p letters.each_cons(2).all? { |a, b| b == a + 1 }
 
+# value = []
 
-# p nums.each_cons(2).all? { |a, b| b == a + 1 }
+# test_array.each_slice(2) { |pair| value << pair.join(" ") }
+
+p "A".next
