@@ -105,4 +105,45 @@ RSpec.describe Board do
       expect(@board.cells["A3"].status).to eq("S")
     end
   end
+
+  describe "#render" do
+    it "will render an empty board" do
+      expect(@board.render).to eq(
+        "  1 2 3 4 \n"\
+        "A . . . . \n"\
+        "B . . . . \n"\
+        "C . . . . \n"\
+        "D . . . . \n"
+      )
+      expect(@board.render(true)).to eq(
+        "  1 2 3 4 \n"\
+        "A . . . . \n"\
+        "B . . . . \n"\
+        "C . . . . \n"\
+        "D . . . . \n"
+      )
+    end
+
+    it "will render a board with ships but hide them" do
+      @board.place(@cruiser, ["A1", "A2", "A3"])
+      expect(@board.render).to eq(
+        "  1 2 3 4 \n"\
+        "A . . . . \n"\
+        "B . . . . \n"\
+        "C . . . . \n"\
+        "D . . . . \n"
+      )
+    end
+
+    it "will render a board with ships and show them with 'true' argument" do
+      @board.place(@cruiser, ["A1", "A2", "A3"])
+      expect(@board.render(true)).to eq(
+        "  1 2 3 4 \n"\
+        "A S S S . \n"\
+        "B . . . . \n"\
+        "C . . . . \n"\
+        "D . . . . \n"
+      )
+    end
+  end
 end
