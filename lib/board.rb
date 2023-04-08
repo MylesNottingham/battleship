@@ -21,6 +21,7 @@ class Board
 
   def valid_placement?(ship, coordinates)
     return false unless ship.length == coordinates.length
+    return false unless coordinates.all? { |coordinate| @cells[coordinate].status == "." }
 
     letters = coordinates.map { |coordinate| coordinate[0].ord }
     nums = coordinates.map { |coordinate| coordinate[1].to_i }
@@ -38,8 +39,6 @@ class Board
     return "Sorry invalid placement" unless coordinates.all? { |coordinate| valid_coordinate?(coordinate) }
     return "Sorry invalid placement" unless valid_placement?(ship, coordinates)
 
-    coordinates.each do |coordinate|
-      @cells[coordinate].place_ship(ship)
-    end
+    coordinates.each { |coordinate| @cells[coordinate].place_ship(ship) }
   end
 end
