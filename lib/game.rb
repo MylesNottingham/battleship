@@ -1,4 +1,6 @@
 class Game
+  attr_reader :winner
+
   def initialize
     @computer_cruiser = Ship.new("Cruiser", 3)
     @computer_submarine = Ship.new("Submarine", 2)
@@ -6,6 +8,7 @@ class Game
     @human_submarine = Ship.new("Submarine", 2)
     @computer_board = Board.new
     @human_board = Board.new
+    @winner = nil
 
     computer_place(@computer_cruiser)
     computer_place(@computer_submarine)
@@ -24,7 +27,7 @@ class Game
     # play
   end
 
-    def computer_place(ship)
+  def computer_place(ship)
       sleep(1)
       loop do
         coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
@@ -46,8 +49,9 @@ class Game
   end
 
   # def play
-  #   start = Turn.new(@human_board, @computer_board)
-  #   start.results
+  #   turn = Turn.new(@human_board, @computer_board)
+  #   turn.boards
+  # @winner = "winner"
   # end
 
   def three_cell_coordinates

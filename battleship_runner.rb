@@ -14,4 +14,6 @@ loop do
   puts "INVALID INPUT"
 end
 
-input == "P" ? Game.new : exit
+input == "P" ? game = Game.new : exit
+
+puts game.winner
