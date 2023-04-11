@@ -36,8 +36,8 @@ class Board
   end
 
   def place(ship, coordinates)
-    return "Sorry invalid placement" unless coordinates.all? { |coordinate| valid_coordinate?(coordinate) }
-    return "Sorry invalid placement" unless valid_placement?(ship, coordinates)
+    return false unless coordinates.all? { |coordinate| valid_coordinate?(coordinate) }
+    return false unless valid_placement?(ship, coordinates)
 
     coordinates.each { |coordinate| @cells[coordinate].place_ship(ship) }
   end
