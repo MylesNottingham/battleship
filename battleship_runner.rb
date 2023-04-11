@@ -1,6 +1,10 @@
-require "./spec/spec_helper.rb"
+require "./lib/game"
+require "./lib/board"
+require "./lib/ship"
+require "./lib/cell"
 
-3.times {puts}
+game = Game.new
+3.times { puts }
 
 puts "Welcome to BATTLESHIP\n\n"
 sleep(0.5)
@@ -8,12 +12,14 @@ puts "Enter p to play. Enter q to quit.!
 ------------------------------------------------------------------"
 
 input = nil
+valid_input = ["P", "Q"]
 loop do
   input = gets.upcase.chomp
-  break if input == "P" || input == "Q"
+  break if valid_input.include?(input)
+
   puts "INVALID INPUT"
 end
 
-input == "P" ? game = Game.new : exit
+input == "P" ? game.play : exit
 
 puts game.winner
