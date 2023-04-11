@@ -50,4 +50,49 @@
 
 # test_array.each_slice(2) { |pair| value << pair.join(" ") }
 
-p "A".next
+# p "A".next
+
+
+
+
+# nums = [1, 2, 7, 4, 5, 6]
+
+# # nums.each_cons(2).each { |a, b| p [a, b] }
+
+# nums.each_cons(2).each do |cons|
+#     p cons
+# end
+
+# input = gets.chomp.split(" ")
+
+# print input
+
+# coordinates = []
+# ("A".."D").each do |letter|
+#   4.times do |index|
+#     coordinates << "#{letter}#{index + 1}"
+#   end
+# end
+
+# print coordinates.group_by
+
+three_cell_coordinates = [
+    ["A1", "A2", "A3"],
+    ["B1", "B2", "B3"],
+    ["C1", "C2", "C3"],
+    ["D1", "D2", "D3"],
+    ["A2", "A3", "A4"],
+    ["B2", "B3", "B4"],
+    ["C2", "C3", "C4"],
+    ["D2", "D3", "D4"],
+    ["A1", "B1", "C1"],
+    ["A2", "B2", "C2"],
+    ["A3", "B3", "C3"],
+    ["A4", "B4", "C4"],
+    ["B1", "C1", "D1"],
+    ["B2", "C2", "D2"],
+    ["B3", "C3", "D3"],
+    ["B4", "C4", "D4"],
+    ]
+
+print three_cell_coordinates.sample
