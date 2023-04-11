@@ -24,56 +24,12 @@ class Game
     # play
   end
 
-  def computer_place(ship)
-    sleep(1)
-    three_cell_coordinates = [
-    ["A1", "A2", "A3"],
-    ["B1", "B2", "B3"],
-    ["C1", "C2", "C3"],
-    ["D1", "D2", "D3"],
-    ["A2", "A3", "A4"],
-    ["B2", "B3", "B4"],
-    ["C2", "C3", "C4"],
-    ["D2", "D3", "D4"],
-    ["A1", "B1", "C1"],
-    ["A2", "B2", "C2"],
-    ["A3", "B3", "C3"],
-    ["A4", "B4", "C4"],
-    ["B1", "C1", "D1"],
-    ["B2", "C2", "D2"],
-    ["B3", "C3", "D3"],
-    ["B4", "C4", "D4"],
-    ]
-    two_cell_coordinates = [
-      ["A1", "A2"],
-      ["B1", "B2"],
-      ["C1", "C2"],
-      ["D1", "D2"],
-      ["A2", "A3"],
-      ["B2", "B3"],
-      ["C2", "C3"],
-      ["D2", "D3"],
-      ["A3", "A4"],
-      ["B3", "B4"],
-      ["C3", "C4"],
-      ["D3", "D4"],
-      ["A1", "B1"],
-      ["A2", "B2"],
-      ["A3", "B3"],
-      ["A4", "B4"],
-      ["B1", "C1"],
-      ["B2", "C2"],
-      ["B3", "C3"],
-      ["B4", "C4"],
-      ["C1", "D1"],
-      ["C2", "D2"],
-      ["C3", "D3"],
-      ["C4", "D4"],
-      ]
-    coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
-    until @computer_board.place(ship, coordinates) != false
-      coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
-    end
+    def computer_place(ship)
+      sleep(1)
+      loop do
+        coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
+        break if @computer_board.place(ship, coordinates)
+      end
 
     puts @computer_board.render(true)
   end
@@ -81,11 +37,11 @@ class Game
   def human_place(ship)
     puts
     puts @human_board.render(true)
-    print "\nEnter the squares for the #{ship.name} (#{ship.length} spaces): "
-    coordinates = gets.chomp.split(" ")
-    until @human_board.place(ship, coordinates) != false
-      print "Those are invalid coordinates. Please try again: "
+    loop do
+      print "Enter the squares for the #{ship.name} (#{ship.length} spaces): "
       coordinates = gets.chomp.split(" ")
+      break if @human_board.place(ship, coordinates)
+      puts "Those are invalid coordinates. Please try again."
     end
   end
 
@@ -93,4 +49,34 @@ class Game
   #   start = Turn.new(@human_board, @computer_board)
   #   start.results
   # end
+
+  def three_cell_coordinates
+    three_cell_coordinates = []
+    ("A".."D").each do |letter|
+      ("1".."2").each do |number|
+        three_cell_coordinates << [("#{letter}#{number}"), ("#{letter}#{number.to_i+1}"), ("#{letter}#{number.to_i+2}")]
+      end
+    end
+    ("1".."4").each do |number|
+      ("A".."B").each do |letter|
+        three_cell_coordinates << [("#{letter}#{number}"), ("#{letter.next}#{number}"), ("#{letter.next.next}#{number}")]
+      end
+    end
+    three_cell_coordinates
+  end
+
+  def two_cell_coordinates
+    two_cell_coordinates = []
+    ("A".."D").each do |letter|
+      ("1".."3").each do |number|
+        two_cell_coordinates << [("#{letter}#{number}"), ("#{letter}#{number.to_i+1}")]
+      end
+    end
+    ("1".."4").each do |number|
+      ("A".."C").each do |letter|
+        two_cell_coordinates << [("#{letter}#{number}"), ("#{letter.next}#{number}")]
+      end
+    end
+    two_cell_coordinates
+  end
 end
