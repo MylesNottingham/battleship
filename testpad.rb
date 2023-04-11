@@ -124,6 +124,21 @@
 
 # print three_cell_coordinates.sample
 
+# two_cell_coordinates = []
+# ("A".."D").each do |letter|
+#   ("1".."3").each do |number|
+#     two_cell_coordinates << [("#{letter}#{number}"), ("#{letter}#{number.to_i+1}")]
+#   end
+# end
+# ("1".."4").each do |number|
+#   ("A".."C").each do |letter|
+#     two_cell_coordinates << [("#{letter}#{number}"), ("#{letter.next}#{number}")]
+#   end
+# end
+
+# print two_cell_coordinates
+
+
 two_cell_coordinates = []
 ("A".."D").each do |letter|
   ("1".."3").each do |number|
@@ -135,8 +150,7 @@ end
     two_cell_coordinates << [("#{letter}#{number}"), ("#{letter.next}#{number}")]
   end
 end
-
-print two_cell_coordinates
+p two_cell_coordinates
 
 
 # ["A1", "A2", "A3"],
@@ -155,3 +169,17 @@ print two_cell_coordinates
 # ["B2", "C2", "D2"],
 # ["B3", "C3", "D3"],
 # ["B4", "C4", "D4"],
+
+
+# three_cell_coordinates = []
+# ("A".."D").each do |letter|
+#   ("1".."2").each do |number|
+#     three_cell_coordinates << [("#{letter}#{number}"), ("#{letter}#{number.to_i+1}"), ("#{letter}#{number.to_i+2}")]
+#   end
+# end
+# ("1".."4").each do |number|
+#   ("A".."B").each do |letter|
+#     three_cell_coordinates << [("#{letter}#{number}"), ("#{letter.next}#{number}"), ("#{letter.next.next}#{number}")]
+#   end
+# end
+# p three_cell_coordinates
