@@ -1,3 +1,5 @@
 class Turn
-  # to do 
+  def initialize
+    #TODO
+  end
 end
