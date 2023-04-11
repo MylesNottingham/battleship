@@ -7,14 +7,11 @@ sleep(0.5)
 puts "Enter p to play. Enter q to quit.!
 ------------------------------------------------------------------"
 
-input = gets.upcase.chomp
-until input == "P" || input == "Q"
-  puts "INVALID INPUT"
+input = nil
+loop do
   input = gets.upcase.chomp
+  break if input == "P" || input == "Q"
+  puts "INVALID INPUT"
 end
 
-if input == "P"
-  Game.new
-else
-  exit
-end
+input == "P" ? Game.new : exit
