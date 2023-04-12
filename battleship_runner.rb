@@ -1,4 +1,5 @@
 require "./lib/game"
+require "./lib/turn"
 require "./lib/board"
 require "./lib/ship"
 require "./lib/cell"
@@ -20,6 +21,6 @@ loop do
   puts "INVALID INPUT"
 end
 
-input == "P" ? game.play : exit
+input == "P" ? game.start : exit
 
 puts game.winner
