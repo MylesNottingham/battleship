@@ -20,16 +20,15 @@ class Board
   end
 
   def valid_placement?(ship, coordinates)
-    return false unless ship.length == coordinates.length
-    return false unless coordinates.all? { |coordinate| @cells[coordinate].status == "." }
+    return false unless valid_length?(ship, coordinates) && cells_empty?(coordinates)
 
     letters = coordinates.map { |coordinate| coordinate[0].ord }
     nums = coordinates.map { |coordinate| coordinate[1].to_i }
 
-    if letters.all? { |letter| letter == letters.first }
-      nums.each_cons(2).all? { |a, b| b == a + 1 }
-    elsif nums.all? { |num| num == nums.first }
-      letters.each_cons(2).all? { |a, b| b == a + 1 }
+    if all_the_same?(letters)
+      consecutive?(nums)
+    elsif all_the_same?(nums)
+      consecutive?(letters)
     else
       false
     end
@@ -55,4 +54,21 @@ class Board
 
     "  #{columns} \n#{board_array.join('')}"
   end
+
+  def valid_length?(ship, coordinates)
+    ship.length == coordinates.length
+  end
+
+  def cells_empty?(coordinates)
+    coordinates.all? { |coordinate| @cells[coordinate].status == "." }
+  end
+
+  def all_the_same?(data)
+    data.all? { |piece| piece == data.first }
+  end
+
+  def consecutive?(data)
+    data.each_cons(2).all? { |a, b| b == a + 1 }
+  end
+
 end
