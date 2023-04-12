@@ -45,6 +45,7 @@ class Game
         @computer_board,
         @human_board
       )
+      turn.start_turn
       @winner = turn.turn_winner
     end
   end

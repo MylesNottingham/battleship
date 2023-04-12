@@ -1,5 +1,6 @@
 class Turn
-  attr_reader :turn_winner
+  attr_reader :start_turn
+              :turn_winner
 
   def initialize(
     computer_cruiser,
@@ -16,7 +17,9 @@ class Turn
     @computer_board = computer_board
     @human_board = human_board
     @turn_winner = nil
+  end
 
+  def start_turn
     display_boards
     human_shot
     computer_shot
