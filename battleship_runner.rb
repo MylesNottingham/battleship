@@ -1,9 +1,12 @@
+# loads source files for runner
 require "./lib/game"
 require "./lib/turn"
 require "./lib/board"
 require "./lib/ship"
 require "./lib/cell"
 
+# loop to prompt user to either play the game or quit
+# restarts after each game concludes
 loop do
   3.times { puts }
 
