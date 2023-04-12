@@ -19,7 +19,7 @@ RSpec.describe Board do
   end
 
   describe "#create_cells" do
-    it "creates a new board of 16 cells when called" do
+    it "creates a new board each time it is called" do
       expect(@board.cells).to be_a(Hash)
       first_a1 = @board.cells["A1"]
       @board.create_cells
@@ -146,4 +146,26 @@ RSpec.describe Board do
       )
     end
   end
+
+  describe "#valid_length?" do
+    it "will return true if board includes coordinate" do
+      expect(@board.valid_coordinate?("A1")).to eq(true)
+      expect(@board.valid_coordinate?("D4")).to eq(true)
+    end
+  end
+
+  describe "#cells_empty?" do
+  it "will return true if board includes coordinate" do
+    expect(@board.valid_coordinate?("A1")).to eq(true)
+    expect(@board.valid_coordinate?("D4")).to eq(true)
+  end
+
+  describe "#all_the_same?" do
+    it "will return true if board includes coordinate" do
+      expect(@board.valid_coordinate?("A1")).to eq(true)
+      expect(@board.valid_coordinate?("D4")).to eq(true)
+    end
+  end
+  
+end
 end
