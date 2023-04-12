@@ -37,8 +37,15 @@ class Game
 
   def play
     until @winner
-      turn = Turn.new(@computer_board, @human_board)
-      @winner = turn.winner
+      turn = Turn.new(
+        @computer_cruiser,
+        @computer_submarine,
+        @human_cruiser,
+        @human_submarine,
+        @computer_board,
+        @human_board
+      )
+      @winner = turn.turn_winner
     end
   end
 
@@ -48,8 +55,6 @@ class Game
       coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
       break if @computer_board.place(ship, coordinates)
     end
-
-    puts @computer_board.render(true)
   end
 
   def human_place(ship)
