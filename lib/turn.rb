@@ -33,15 +33,6 @@ class Turn
     puts
   end
 
-  # def human_shot
-  #   input = gets.chomp
-  #   while @computer_board.cells[input].fired_upon?
-  #     puts "Already fired upon"
-  #     input = gets.chomp
-  #   end
-  #   @computer_board.cells[input].fire_upon
-  # end
-
   def human_shot
     @human_shot = nil
 
@@ -71,6 +62,14 @@ class Turn
   end
 
   def determine_winner
-    @turn_winner = "TEST"
+    if @computer_cruiser.sunk? && @computer_submarine.sunk?
+      display_boards
+      @turn_winner = "You won!"
+    elsif @human_cruiser.sunk? && @human_submarine.sunk?
+      display_boards
+      @turn_winner = "I won!"
+    else
+      @turn_winner = nil
+    end
   end
 end
