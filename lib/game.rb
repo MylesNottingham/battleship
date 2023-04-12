@@ -17,7 +17,7 @@ class Game
     @winner = nil
   end
 
-  def play
+  def start
     computer_place(@computer_cruiser)
     computer_place(@computer_submarine)
 
@@ -32,7 +32,21 @@ class Game
     puts
     puts @human_board.render(true)
     puts
-    # play
+    play
+  end
+
+  def play
+    until @winner
+      turn = Turn.new(
+        @computer_cruiser,
+        @computer_submarine,
+        @human_cruiser,
+        @human_submarine,
+        @computer_board,
+        @human_board
+      )
+      @winner = turn.turn_winner
+    end
   end
 
   def computer_place(ship)
@@ -41,8 +55,6 @@ class Game
       coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
       break if @computer_board.place(ship, coordinates)
     end
-
-    puts @computer_board.render(true)
   end
 
   def human_place(ship)
@@ -56,12 +68,6 @@ class Game
       puts "Those are invalid coordinates. Please try again."
     end
   end
-
-  # def play
-  #   turn = Turn.new(@human_board, @computer_board)
-  #   turn.boards
-  # @winner = "winner"
-  # end
 
   def three_cell_coordinates
     three_cell_coordinates = []

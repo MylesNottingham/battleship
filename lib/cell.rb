@@ -29,7 +29,7 @@ class Cell
       @status = "H"
       @ship.hit
     else
-      "TRY AGAIN!"
+      return false
     end
   end
 
