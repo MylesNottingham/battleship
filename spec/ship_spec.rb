@@ -19,9 +19,7 @@ RSpec.describe Ship do
     it "let us know if the ship sinks" do
       expect(@cruiser.health).to eq(3)
       expect(@cruiser.sunk?).to eq(false)
-      @cruiser.hit
-      @cruiser.hit
-      @cruiser.hit
+      3.times { @cruiser.hit }
       expect(@cruiser.sunk?).to eq(true)
     end
   end
@@ -39,9 +37,7 @@ RSpec.describe Ship do
 
     it "will not reduce the heath of ship below zero" do
       expect(@cruiser.health).to eq(3)
-      @cruiser.hit
-      @cruiser.hit
-      @cruiser.hit
+      3.times { @cruiser.hit }
       expect(@cruiser.health).to eq(0)
       @cruiser.hit
       expect(@cruiser.health).to eq(0)
