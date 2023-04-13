@@ -67,7 +67,7 @@ class Game
   end
 
   # Places human ships after accounting for human error
-  # Prints strings to interact with user 
+  # Prints strings to interact with user
   def human_place(ship)
     puts "\n#{@human_board.render(true)}"
     loop do
@@ -80,6 +80,7 @@ class Game
     sleep(1)
   end
 
+  # Establishes valid three cell coordinates
   def three_cell_coordinates
     three_cell_coordinates = []
     ("A".."D").each do |letter|
