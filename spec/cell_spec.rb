@@ -23,19 +23,6 @@ RSpec.describe Cell do
     end
   end
 
-  describe "#empty?" do
-    it "will return true if status is empty" do
-      expect(@cell_1.status).to eq(".")
-      expect(@cell_1.empty?).to eq(true)
-    end
-
-    it "will return false if status is not empty" do
-      @cell_1.place_ship(@cruiser)
-      expect(@cell_1.status).to eq("S")
-      expect(@cell_1.empty?).to eq(false)
-    end
-  end
-
   describe "#place_ship" do
     it "can place a ship in the cell" do
       expect(@cell_1.status).to eq(".")
@@ -45,23 +32,6 @@ RSpec.describe Cell do
       expect(@cell_1.status).to eq("S")
       expect(@cell_1.empty?).to eq(false)
       expect(@cell_1.ship).to eq(@cruiser)
-    end
-  end
-
-  describe "#fired_upon?" do
-    it "will return true if fired upon and empty" do
-      expect(@cell_1.status).to eq(".")
-      expect(@cell_1.fired_upon?).to eq(false)
-      @cell_1.fire_upon
-      expect(@cell_1.fired_upon?).to eq(true)
-    end
-
-    it "will return true if fired upon and occupied" do
-      @cell_1.place_ship(@cruiser)
-      expect(@cell_1.status).to eq("S")
-      expect(@cell_1.fired_upon?).to eq(false)
-      @cell_1.fire_upon
-      expect(@cell_1.fired_upon?).to eq(true)
     end
   end
 
@@ -172,6 +142,36 @@ RSpec.describe Cell do
       @cruiser.hit
       expect(@cell_1.ship.health).to eq(0)
       expect(@cell_1.render(true)).to eq("X")
+    end
+  end
+
+  describe "#empty?" do
+    it "will return true if status is empty" do
+      expect(@cell_1.status).to eq(".")
+      expect(@cell_1.empty?).to eq(true)
+    end
+
+    it "will return false if status is not empty" do
+      @cell_1.place_ship(@cruiser)
+      expect(@cell_1.status).to eq("S")
+      expect(@cell_1.empty?).to eq(false)
+    end
+  end
+
+  describe "#fired_upon?" do
+    it "will return true if fired upon and empty" do
+      expect(@cell_1.status).to eq(".")
+      expect(@cell_1.fired_upon?).to eq(false)
+      @cell_1.fire_upon
+      expect(@cell_1.fired_upon?).to eq(true)
+    end
+
+    it "will return true if fired upon and occupied" do
+      @cell_1.place_ship(@cruiser)
+      expect(@cell_1.status).to eq("S")
+      expect(@cell_1.fired_upon?).to eq(false)
+      @cell_1.fire_upon
+      expect(@cell_1.fired_upon?).to eq(true)
     end
   end
 end
