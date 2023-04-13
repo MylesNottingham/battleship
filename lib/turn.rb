@@ -65,10 +65,10 @@ class Turn
   # Displays both players' boards with new shot results
   def display_results
     sleep(1)
-    human_result = @computer_board.cells[@human_shot].status == "M" ? "miss" : "hit"
+    human_result = @computer_board.cells[@human_shot].status == "⬜️" ? "miss" : "hit"
     puts "\n\nYour shot on #{@human_shot} was a #{human_result}."
     sleep(1)
-    computer_result = @human_board.cells[@computer_shot].status == "M" ? "miss" : "hit"
+    computer_result = @human_board.cells[@computer_shot].status == "⬜️" ? "miss" : "hit"
     puts "\nMy shot on #{@computer_shot} was a #{computer_result}.\n\n"
     sleep(1)
   end

@@ -39,11 +39,11 @@ class Board
     # All of this is shoveled into the "board_array"
     board_array = []
     rows.each_with_index do |row, index|
-      board_array << "#{(65 + index).chr} #{row.map { |cell| cell.render(reveal) }.join(' ')} \n"
+      board_array << "#{(65 + index).chr} #{row.map { |cell| cell.render(reveal) }.join('')} \n"
     end
 
     # This formats our "columns" header and our "board_array" together as one string
-    "  #{columns} \n#{board_array.join('')}\n"
+    "   #{columns} \n#{board_array.join('')}\n"
   end
 
   # Helper method to validate one coordinate
@@ -82,9 +82,9 @@ class Board
     ship.length == coordinates.length
   end
 
-  # Helper method verifies all coordinates in array are empty (".")
+  # Helper method verifies all coordinates in array are empty ("🟦")
   def cells_empty?(coordinates)
-    coordinates.all? { |coordinate| @cells[coordinate].status == "." }
+    coordinates.all? { |coordinate| @cells[coordinate].status == "🟦" }
   end
 
   # Helper method verifies all elements in array match

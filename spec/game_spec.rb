@@ -39,18 +39,18 @@ RSpec.describe Game do
     it "allows computer to place first ship on computer board" do
       cells = @game.computer_board.cells.values
 
-      expect(cells.all? { |cell| cell.status == "." }).to eq(true)
+      expect(cells.all? { |cell| cell.status == "🟦" }).to eq(true)
       @game.computer_place(@game.computer_cruiser)
-      expect(cells.count { |cell| cell.status == "S" }).to eq(3)
+      expect(cells.count { |cell| cell.status == "⛵️" }).to eq(3)
     end
 
     it "allows computer to place a second ship on computer board" do
       cells = @game.computer_board.cells.values
 
-      expect(cells.all? { |cell| cell.status == "." }).to eq(true)
+      expect(cells.all? { |cell| cell.status == "🟦" }).to eq(true)
       @game.computer_place(@game.computer_cruiser)
       @game.computer_place(@game.computer_submarine)
-      expect(cells.count { |cell| cell.status == "S" }).to eq(5)
+      expect(cells.count { |cell| cell.status == "⛵️" }).to eq(5)
     end
   end
 
