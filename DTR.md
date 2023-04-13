@@ -139,22 +139,44 @@ Essential Questions:
 Individual Reflection
 
 Have I been able to uphold the DTR norms we set?
-
+  - Jesse
+    - I think I have been able to uphold the norms.
+  - Myles
+    -
 Are there any new norms or expectations I would like to add?
+  - Jesse
+    - No, I think we were pretty thorough in establishing our working agreement and expectations.
+  - Myles
+    -
 
-Do I need to give any feedback or clarify my working relationship with anyone?
+Do I need to give any feedback or clarify my working relationship with anyone?'
+
+- Jesse
+    - No, I think we were pretty thorough in establishing our working agreement and expectations.
+  - Myles
+    -
 
 Team Discussion:
 
 Have we been able to meet the DTR norms we set?
 
+  - We haven't had any issues meeting the guidelines set forth at the beginning.
+
 In what ways are we working well together?
+
+  - We communicate well and respect each other's availability.
 
 Are there ways we should operate differently in order to be at our best as a team?
 
+  - We think this has worked pretty well with our current setup.
+
 What do we commit to changing?
 
+  - Anything that doesn't work well.
+
 When will we check in again?
+
+  - End of the project.
 
 IF YOU HAVE A CONFLICT
 DTR: Problem Solving
