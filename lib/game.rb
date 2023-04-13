@@ -80,7 +80,7 @@ class Game
     sleep(1)
   end
 
-  # Establishes valid three cell coordinates
+  # Generates an array of all valid coordinates that can fit a three cell ship
   def three_cell_coordinates
     three_cell_coordinates = []
     ("A".."D").each do |letter|
@@ -96,6 +96,7 @@ class Game
     three_cell_coordinates
   end
 
+  # Generates an array of all valid coordinates that can fit a two cell ship
   def two_cell_coordinates
     two_cell_coordinates = []
     ("A".."D").each do |letter|
