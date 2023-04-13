@@ -164,7 +164,6 @@ RSpec.describe Board do
 
     it "returns false if ship length and coordinate length are not the same" do
       expect(@board.valid_length?(@submarine, ["A1", "A2", "A3"])).to eq(false)
-
     end
   end
 
