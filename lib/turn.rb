@@ -1,6 +1,5 @@
 class Turn
-  attr_reader :start_turn
-              :turn_winner
+  attr_reader :turn_winner
 
   def initialize(
     computer_cruiser,
@@ -19,7 +18,7 @@ class Turn
     @turn_winner = nil
   end
 
-  def start_turn
+  def start
     display_boards
     human_shot
     computer_shot
@@ -28,22 +27,21 @@ class Turn
   end
 
   def display_boards
-    puts "=============COMPUTER BOARD============="
-    puts @computer_board.render
-
-    puts "==============PLAYER BOARD=============="
-    puts @human_board.render(true)
-    puts
+    puts  "=============COMPUTER BOARD=============\n"\
+          "#{@computer_board.render}"\
+          "==============PLAYER BOARD==============\n"\
+          "#{@human_board.render(true)}"
   end
 
   def human_shot
     @human_shot = nil
 
-    puts "Enter the coordinate for your shot: "
+    print "Enter the coordinate for your shot: "
     loop do
       @human_shot = gets.chomp
       break if @computer_board.valid_coordinate?(@human_shot) && !@computer_board.cells[@human_shot].fired_upon?
-      puts "Please enter a valid coordinate: "
+
+      print "Please enter a valid coordinate: "
     end
 
     @computer_board.cells[@human_shot].fire_upon
@@ -58,14 +56,20 @@ class Turn
   end
 
   def display_results
-    @computer_board.cells[@human_shot].status == "M" ? human_result = "miss" : human_result = "hit"
-    puts "Your shot on #{@human_shot} was a #{human_result}."
-    @human_board.cells[@computer_shot].status == "M" ? computer_result = "miss" : computer_result = "hit"
-    puts "My shot on #{@computer_shot} was a #{computer_result}."
+    sleep(1)
+    human_result = @computer_board.cells[@human_shot].status == "M" ? "miss" : "hit"
+    puts "\n\nYour shot on #{@human_shot} was a #{human_result}."
+    sleep(1)
+    computer_result = @human_board.cells[@computer_shot].status == "M" ? "miss" : "hit"
+    puts "\nMy shot on #{@computer_shot} was a #{computer_result}.\n\n"
+    sleep(1)
   end
 
   def determine_winner
-    if @computer_cruiser.sunk? && @computer_submarine.sunk?
+    if @computer_cruiser.sunk? && @computer_submarine.sunk? && @human_cruiser.sunk? && @human_submarine.sunk?
+      display_boards
+      @turn_winner = "Draw!"
+    elsif @computer_cruiser.sunk? && @computer_submarine.sunk?
       display_boards
       @turn_winner = "You won!"
     elsif @human_cruiser.sunk? && @human_submarine.sunk?
