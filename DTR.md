@@ -54,14 +54,14 @@ Do you like to work alone first?
     - Establish expectations, work independently and regroup to discuss understanding
     - Do that again.
     - Work together on murky concepts or specific things that need it
-Myles
+  - Myles
     - Plan together, do some work independently, meet back up to review, repeat…
 
 Do you like to speak out loud as you are learning?
   - Jesse
-Yep.
+    - Yep.
   - Myles
-No
+    - No
 
 What do you need (resources, environment, communication) to do your best work?
   - Jesse
@@ -134,28 +134,48 @@ Is there anything else we should know about one another before we start working?
 
 AFTER FIRST WEEK & ONGOING DURING PROJECT
 DTR: Check In
+
 Essential Questions:
 Individual Reflection
+
 Have I been able to uphold the DTR norms we set?
+
 Are there any new norms or expectations I would like to add?
+
 Do I need to give any feedback or clarify my working relationship with anyone?
+
 Team Discussion:
+
 Have we been able to meet the DTR norms we set?
+
 In what ways are we working well together?
+
 Are there ways we should operate differently in order to be at our best as a team?
+
 What do we commit to changing?
+
 When will we check in again?
 
 IF YOU HAVE A CONFLICT
 DTR: Problem Solving
+
 Essential Questions:
 Individual Reflection
+
 What behaviors/actions are occurring that are causing a challenge?
+
 Why are those behaviors challenging?
+
 Did we discuss those behaviors in our DTR?
+
 What language should I use to communicate this challenge?
+
 Team Discussion:
-Identify the problem/challenge that needs to be solved
+
+Identify the problem/challenge that needs to be solved:
+
 What are the behaviors happening?
+
 How could we update our DTR to address this?
+
 What actions can we all take to move forward?
