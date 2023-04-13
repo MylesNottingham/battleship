@@ -1,19 +1,19 @@
-# loads source files for runner
+# Loads source files for runner
 require "./lib/game"
 require "./lib/turn"
 require "./lib/board"
 require "./lib/ship"
 require "./lib/cell"
 
-# loop to prompt user to either play the game or quit
-# restarts after each game concludes
+# Loop to prompt user to either play the game or quit
+# Restarts after each game concludes
 loop do
   3.times { puts }
 
   puts "Welcome to BATTLESHIP\n\n"
   sleep(0.5)
-  puts "Enter p to play. Enter q to quit.!
-  ------------------------------------------------------------------"
+  puts  "Enter p to play. Enter q to quit.!\n"\
+        "------------------------------------------------------------------"
 
   input = nil
   valid_input = ["P", "Q"]
