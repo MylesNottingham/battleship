@@ -27,8 +27,12 @@ RSpec.describe Game do
     end
   end
 
+  describe "#start" do
+    # TODO
+  end
+
   describe "#play" do
-    # pending development of turn class
+    # TODO
   end
 
   describe "#computer_place" do
@@ -51,7 +55,7 @@ RSpec.describe Game do
   end
 
   describe "#human_place" do
-    # "you're gonna have to trust us that it works for humans too"
+    # You're gonna have to trust us that it works for humans too
   end
 
   describe "#three_cell_coordinates" do

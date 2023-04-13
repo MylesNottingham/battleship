@@ -21,7 +21,7 @@ class Game
     computer_place(@computer_cruiser)
     computer_place(@computer_submarine)
 
-    3.times { puts }
+    puts
     sleep(1)
     puts "I have laid out my ships on the grid.\n"\
     "You now need to lay out your two ships.\n"\
@@ -29,9 +29,7 @@ class Game
 
     human_place(@human_cruiser)
     human_place(@human_submarine)
-    puts
-    puts @human_board.render(true)
-    puts
+    puts "\n#{@human_board.render(true)}"
     play
   end
 
@@ -45,22 +43,21 @@ class Game
         @computer_board,
         @human_board
       )
-      turn.start_turn
+      turn.start
       @winner = turn.turn_winner
     end
   end
 
   def computer_place(ship)
-    sleep(1)
     loop do
       coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
       break if @computer_board.place(ship, coordinates)
     end
+    sleep(1)
   end
 
   def human_place(ship)
-    puts
-    puts @human_board.render(true)
+    puts "\n#{@human_board.render(true)}"
     loop do
       print "Enter the squares for the #{ship.name} (#{ship.length} spaces): "
       coordinates = gets.chomp.split(" ")
@@ -68,6 +65,7 @@ class Game
 
       puts "Those are invalid coordinates. Please try again."
     end
+    sleep(1)
   end
 
   def three_cell_coordinates
