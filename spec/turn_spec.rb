@@ -51,7 +51,7 @@ RSpec.describe Turn do
   end
 
   describe "#display_results" do
-    #TODO
+    # TODO
   end
 
   describe "#determine_winner" do
