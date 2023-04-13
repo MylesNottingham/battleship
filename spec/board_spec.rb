@@ -119,7 +119,13 @@ RSpec.describe Board do
   end
 
   describe "#valid_coordinates?" do
-    # TODO
+    it "returns true if all coordinates are valid cells" do
+      expect(@board.valid_coordinates?(["A1", "A2", "A3"])).to eq(true)
+    end
+
+    it "returns false if all coordinates are invalid cells" do
+      expect(@board.valid_coordinates?(["A3", "A4", "A5"])).to eq(false)
+    end
   end
 
   describe "#valid_placement?" do
@@ -152,21 +158,48 @@ RSpec.describe Board do
   end
 
   describe "#valid_length?" do
-    it "will return true if board includes coordinate" do
-      expect(@board.valid_coordinate?("A1")).to eq(true)
-      expect(@board.valid_coordinate?("D4")).to eq(true)
+    it "returns true if ship length and coordinate length are the same" do
+      expect(@board.valid_length?(@cruiser, @cruiser)).to eq(true)
+    end
+
+    it "returns false if ship length and coordinate length are not the same" do
+      expect(@board.valid_length?(@submarine, ["A1", "A2", "A3"])).to eq(false)
+
     end
   end
 
   describe "#cells_empty?" do
-    # TODO
+    it "returns true if all cells in array are empty" do
+      expect(@board.cells_empty?(["A1", "A2", "A3"])).to eq(true)
+    end
+
+    it "returns false if all cells in array are not empty" do
+      @board.place(@cruiser, ["A1", "B1", "C1"])
+      expect(@board.cells_empty?(["A1", "A2", "A3"])).to eq(false)
+    end
   end
 
   describe "#all_the_same?" do
-    # TODO
+    it "returns true if input is all the same" do
+      expect(@board.all_the_same?(["A", "A", "A"])).to eq(true)
+      expect(@board.all_the_same?([1, 1, 1])).to eq(true)
+    end
+
+    it "returns false if input is not all the same" do
+      expect(@board.all_the_same?(["A", "B", "C"])).to eq(false)
+      expect(@board.all_the_same?([1, 2, 3])).to eq(false)
+    end
   end
 
   describe "#consecutive?" do
-    # TODO
+    it "returns true if elements in array are consecutive" do
+      expect(@board.consecutive?(["A".ord, "B".ord, "C".ord])).to eq(true)
+      expect(@board.consecutive?([1, 2, 3])).to eq(true)
+    end
+
+    it "returns true if elements in array are not consecutive" do
+      expect(@board.consecutive?(["A".ord, "A".ord, "A".ord])).to eq(false)
+      expect(@board.consecutive?([1, 1, 1])).to eq(false)
+    end
   end
 end
