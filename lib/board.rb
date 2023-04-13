@@ -2,13 +2,12 @@
 class Board
   attr_reader :cells
 
-  # Calls create_cells method
+  # Calls create_cells method upon instantiation
   def initialize
     create_cells
   end
 
-  # Creates 16 new cells based on a range from A to D
-  # Iterates over new range and adds consecutive numbers to each letter
+  # Creates 16 cell objects with rows A to D and columns 1 to 4
   def create_cells
     @cells = {}
     ("A".."D").each do |letter|
@@ -19,8 +18,7 @@ class Board
     end
   end
 
-  # Places ship on board after validating coordinates and ship input
-  # Adjusts the cell status of valid cordinates to represent a ship
+  # Places ship on board after validation by adjusting the cell status of cordinates to represent a ship
   def place(ship, coordinates)
     return false unless valid_coordinates?(coordinates) && valid_placement?(ship, coordinates)
 
@@ -53,22 +51,25 @@ class Board
     @cells.keys.include?(coordinate)
   end
 
-  # Helper method to validate multiple coordinates
+  # Helper method to validate array of coordinates
   def valid_coordinates?(coordinates)
     coordinates.all? { |coordinate| valid_coordinate?(coordinate) }
   end
 
-  # Checks ship length against empty cells
-  # If all the cells have the same first letter it will enlist consecuive helper method on numbers
-  # If all the cells have consecutive numbers it will enlist consecutive helper method on letters
+  # Helper method to validate placement of ship
   def valid_placement?(ship, coordinates)
+    # Ensures that the ship and coordinates are the same length and the cells are unoccupied
     return false unless valid_length?(ship, coordinates) && cells_empty?(coordinates)
 
+    # Creates array of the ordinal values of the letter in coordinates provided.
     letters = coordinates.map { |coordinate| coordinate[0].ord }
+    # Creates array of the numbers in coordinates provided as integers.
     nums = coordinates.map { |coordinate| coordinate[1].to_i }
 
+    # Ensures columns are consecutive if coordinates are all on the same row
     if all_the_same?(letters)
       consecutive?(nums)
+    # Ensures rows are consecutive if coordinates are all on the same column
     elsif all_the_same?(nums)
       consecutive?(letters)
     else
@@ -76,22 +77,22 @@ class Board
     end
   end
 
-  # Helper method measures ship length and coordinate length
+  # Helper method ensures ship length is equal to coordinate length
   def valid_length?(ship, coordinates)
     ship.length == coordinates.length
   end
 
-  # Helper method establishes if all incoming coordinates are empty (".")
+  # Helper method verifies all coordinates in array are empty (".")
   def cells_empty?(coordinates)
     coordinates.all? { |coordinate| @cells[coordinate].status == "." }
   end
 
-  # Helper method establishes if all incoming data matches
+  # Helper method verifies all elements in array match
   def all_the_same?(data)
     data.all? { |piece| piece == data.first }
   end
 
-  # Helper method establishes if all incoming data is successive
+  # Helper method verifies all elements in array are consecutive
   def consecutive?(data)
     data.each_cons(2).all? { |a, b| b == a + 1 }
   end
