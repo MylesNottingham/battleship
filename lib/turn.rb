@@ -73,7 +73,7 @@ class Turn
     sleep(1)
   end
 
-  # Determines winner if both ships are returning as sunk 
+  # Determines winner if both ships are returning as sunk
   def determine_winner
     if @computer_cruiser.sunk? && @computer_submarine.sunk? && @human_cruiser.sunk? && @human_submarine.sunk?
       display_boards
