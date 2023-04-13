@@ -1,11 +1,10 @@
 # Establishes Cell class
-
 class Cell
   attr_reader :coordinate,
               :ship,
               :status
 
-  # Instantiates with three attributes and one coordinate parameter
+  # Instantiates with three attributes and one coordinate argument
   def initialize(coordinate)
     @coordinate = coordinate
     @ship = nil
@@ -18,8 +17,8 @@ class Cell
     @status = "S"
   end
 
-  # Adjusts cell status based on current status when called
-  # Will return false if status can't be accessed
+  # Adjusts cell status to reflect being fired upon based on current status when called
+  # Will return false if cell has already been fired upon
   def fire_upon
     if @status == "."
       @status = "M"
@@ -31,8 +30,8 @@ class Cell
     end
   end
 
-  # Will reveal Cell status if passed true
-  # Cell status dependent on current status at the time
+  # Returns cell status as string
+  # Will reveal ship location if argument is true
   def render(reveal = false)
     if @status == "S"
       reveal ? "S" : "."
