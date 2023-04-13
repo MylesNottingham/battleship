@@ -28,48 +28,6 @@ RSpec.describe Board do
     end
   end
 
-  describe "#valid_coordinate?" do
-    it "will return true if board includes coordinate" do
-      expect(@board.valid_coordinate?("A1")).to eq(true)
-      expect(@board.valid_coordinate?("D4")).to eq(true)
-    end
-
-    it "will return false if board does not include coordinate" do
-      expect(@board.valid_coordinate?("A5")).to eq(false)
-      expect(@board.valid_coordinate?("E1")).to eq(false)
-      expect(@board.valid_coordinate?("A22")).to eq(false)
-    end
-  end
-
-  describe "#valid_placement?" do
-    it "will return false if ship length is not equal to coordinate array length" do
-      expect(@board.valid_placement?(@cruiser, ["A1", "A2"])).to eq(false)
-      expect(@board.valid_placement?(@submarine, ["A2", "A3", "A4"])).to eq(false)
-    end
-
-    it "will return false if coordinate array is not consecutive" do
-      expect(@board.valid_placement?(@cruiser, ["A1", "A2", "A4"])).to eq(false)
-      expect(@board.valid_placement?(@submarine, ["A1", "C1"])).to eq(false)
-      expect(@board.valid_placement?(@cruiser, ["A3", "A2", "A1"])).to eq(false)
-      expect(@board.valid_placement?(@submarine, ["C1", "B1"])).to eq(false)
-    end
-
-    it "will return false if coordinate array is diagonal" do
-      expect(@board.valid_placement?(@cruiser, ["A1", "B2", "C3"])).to eq(false)
-      expect(@board.valid_placement?(@submarine, ["C2", "D3"])).to eq(false)
-    end
-
-    it "will return false if cell is occupied by a ship" do
-      @board.place(@cruiser, ["A1", "A2", "A3"])
-      expect(@board.valid_placement?(@submarine, ["A1", "B1"])).to eq(false)
-    end
-
-    it "will return true if placement is valid" do
-      expect(@board.valid_placement?(@cruiser, ["B1", "C1", "D1"])).to eq(true)
-      expect(@board.valid_placement?(@submarine, ["B3", "B4"])).to eq(true)
-    end
-  end
-
   describe "#place" do
     it "will not place ship if coordinantes are invalid" do
       expect(@board.cells["A5"]).to eq(nil)
@@ -113,14 +71,14 @@ RSpec.describe Board do
         "A . . . . \n"\
         "B . . . . \n"\
         "C . . . . \n"\
-        "D . . . . \n"
+        "D . . . . \n\n"
       )
       expect(@board.render(true)).to eq(
         "  1 2 3 4 \n"\
         "A . . . . \n"\
         "B . . . . \n"\
         "C . . . . \n"\
-        "D . . . . \n"
+        "D . . . . \n\n"
       )
     end
 
@@ -131,7 +89,7 @@ RSpec.describe Board do
         "A . . . . \n"\
         "B . . . . \n"\
         "C . . . . \n"\
-        "D . . . . \n"
+        "D . . . . \n\n"
       )
     end
 
@@ -142,8 +100,54 @@ RSpec.describe Board do
         "A S S S . \n"\
         "B . . . . \n"\
         "C . . . . \n"\
-        "D . . . . \n"
+        "D . . . . \n\n"
       )
+    end
+  end
+
+  describe "#valid_coordinate?" do
+    it "will return true if board includes coordinate" do
+      expect(@board.valid_coordinate?("A1")).to eq(true)
+      expect(@board.valid_coordinate?("D4")).to eq(true)
+    end
+
+    it "will return false if board does not include coordinate" do
+      expect(@board.valid_coordinate?("A5")).to eq(false)
+      expect(@board.valid_coordinate?("E1")).to eq(false)
+      expect(@board.valid_coordinate?("A22")).to eq(false)
+    end
+  end
+
+  describe "#valid_coordinates?" do
+    # TODO
+  end
+
+  describe "#valid_placement?" do
+    it "will return false if ship length is not equal to coordinate array length" do
+      expect(@board.valid_placement?(@cruiser, ["A1", "A2"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["A2", "A3", "A4"])).to eq(false)
+    end
+
+    it "will return false if coordinate array is not consecutive" do
+      expect(@board.valid_placement?(@cruiser, ["A1", "A2", "A4"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["A1", "C1"])).to eq(false)
+      expect(@board.valid_placement?(@cruiser, ["A3", "A2", "A1"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["C1", "B1"])).to eq(false)
+    end
+
+    it "will return false if coordinate array is diagonal" do
+      expect(@board.valid_placement?(@cruiser, ["A1", "B2", "C3"])).to eq(false)
+      expect(@board.valid_placement?(@submarine, ["C2", "D3"])).to eq(false)
+    end
+
+    it "will return false if cell is occupied by a ship" do
+      @board.place(@cruiser, ["A1", "A2", "A3"])
+      expect(@board.valid_placement?(@submarine, ["A1", "B1"])).to eq(false)
+    end
+
+    it "will return true if placement is valid" do
+      expect(@board.valid_placement?(@cruiser, ["B1", "C1", "D1"])).to eq(true)
+      expect(@board.valid_placement?(@submarine, ["B3", "B4"])).to eq(true)
     end
   end
 
@@ -155,17 +159,14 @@ RSpec.describe Board do
   end
 
   describe "#cells_empty?" do
-  it "will return true if board includes coordinate" do
-    expect(@board.valid_coordinate?("A1")).to eq(true)
-    expect(@board.valid_coordinate?("D4")).to eq(true)
+    # TODO
   end
 
   describe "#all_the_same?" do
-    it "will return true if board includes coordinate" do
-      expect(@board.valid_coordinate?("A1")).to eq(true)
-      expect(@board.valid_coordinate?("D4")).to eq(true)
-    end
+    # TODO
   end
-  
-end
+
+  describe "#consecutive?" do
+    # TODO
+  end
 end

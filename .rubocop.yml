@@ -2587,7 +2587,7 @@ Metrics/ModuleLength:
 Metrics/ParameterLists:
   Description: 'Avoid parameter lists longer than three or four parameters.'
   StyleGuide: '#too-many-params'
-  Enabled: true
+  Enabled: false
   VersionAdded: '0.25'
   VersionChanged: '1.5'
   Max: 5

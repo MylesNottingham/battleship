@@ -9,17 +9,9 @@ class Cell
     @status = "."
   end
 
-  def empty?
-    @status == "."
-  end
-
   def place_ship(ship)
     @ship = ship
     @status = "S"
-  end
-
-  def fired_upon?
-    @status == "M" || @status == "H"
   end
 
   def fire_upon
@@ -29,7 +21,7 @@ class Cell
       @status = "H"
       @ship.hit
     else
-      return false
+      false
     end
   end
 
@@ -41,5 +33,13 @@ class Cell
     else
       @status
     end
+  end
+
+  def empty?
+    @status == "."
+  end
+
+  def fired_upon?
+    @status == "M" || @status == "H"
   end
 end
