@@ -80,6 +80,7 @@ class Game
     sleep(1)
   end
 
+  # Establishes valid three cell coordinates
   def three_cell_coordinates
     three_cell_coordinates = []
     ("A".."D").each do |letter|
