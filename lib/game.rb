@@ -8,7 +8,7 @@ class Game
               :human_board,
               :winner
 
-  # Instantiates with four ships, two boards and no winner
+  # Instantiates with four ships, two boards, and no winner
   def initialize
     @computer_cruiser = Ship.new("Cruiser", 3)
     @computer_submarine = Ship.new("Submarine", 2)
@@ -32,7 +32,7 @@ class Game
     "You now need to lay out your two ships.\n"\
     "The Cruiser is three units long and the Submarine is two units long.\n"
 
-    # Gets input from human, places ships, shows the human board and calls play method
+    # Gets input from human, places ships, shows the human board, and calls play method
     human_place(@human_cruiser)
     human_place(@human_submarine)
     puts "\n#{@human_board.render(true)}"
@@ -40,8 +40,8 @@ class Game
   end
 
   # Loops until winner is true
-  # Intantiates a new turn with board instance objects ("bootleg inheritence")
-  # Begins a turn by calling start
+  # Intantiates a new turn with instance objects from Game ("bootleg inheritence")
+  # Plays out each turn by calling start
   def play
     until @winner
       turn = Turn.new(
@@ -57,7 +57,7 @@ class Game
     end
   end
 
-  # Places both computer ships after assessing ship length
+  # Loop that tries to place computer ships until successful after assessing ship length
   def computer_place(ship)
     loop do
       coordinates = ship.length == 3 ? three_cell_coordinates.sample : two_cell_coordinates.sample
@@ -66,8 +66,8 @@ class Game
     sleep(1)
   end
 
-  # Places human ships after accounting for human error
-  # Prints strings to interact with user
+  # Loop that prompts user to choose ship placement
+  # Places the human ships once a valid placement is provided
   def human_place(ship)
     puts "\n#{@human_board.render(true)}"
     loop do
