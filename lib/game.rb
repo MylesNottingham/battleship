@@ -81,6 +81,8 @@ class Game
   end
 
   # Establishes valid three cell coordinates
+  # Iterates over a range of letters or numbers to add the opposite
+  # Creates 16 possibilities and returns them
   def three_cell_coordinates
     three_cell_coordinates = []
     ("A".."D").each do |letter|
@@ -96,6 +98,9 @@ class Game
     three_cell_coordinates
   end
 
+  # Establishes valid two cell coordinates
+  # Iterates over a range of letters or numbers to add the opposite
+  # Creates 24 possibilities and returns them
   def two_cell_coordinates
     two_cell_coordinates = []
     ("A".."D").each do |letter|
