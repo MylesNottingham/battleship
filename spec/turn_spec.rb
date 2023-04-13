@@ -41,11 +41,17 @@ RSpec.describe Turn do
   end
 
   describe "#computer_shot" do
-    # TODO
+    it "will shoot a random cell on the human board" do
+      board_undisturbed = @human_board.cells.values.all? { |cell| cell.status == "." }
+      expect(board_undisturbed).to eq(true)
+      @turn.computer_shot
+      board_undisturbed = @human_board.cells.values.all? { |cell| cell.status == "." }
+      expect(board_undisturbed).to eq(false)
+    end
   end
 
   describe "#display_results" do
-    # TODO
+    #TODO
   end
 
   describe "#determine_winner" do
