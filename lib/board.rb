@@ -1,6 +1,8 @@
+# Establishes Board class
 class Board
   attr_reader :cells
 
+  # Calls create_cells method
   def initialize
     create_cells
   end
@@ -46,12 +48,12 @@ class Board
     "  #{columns} \n#{board_array.join('')}\n"
   end
 
-  #  Helper method to validate one coordinate
+  # Helper method to validate one coordinate
   def valid_coordinate?(coordinate)
     @cells.keys.include?(coordinate)
   end
 
-  #  Helper method to validate multiple coordinates
+  # Helper method to validate multiple coordinates
   def valid_coordinates?(coordinates)
     coordinates.all? { |coordinate| valid_coordinate?(coordinate) }
   end
@@ -89,7 +91,7 @@ class Board
     data.all? { |piece| piece == data.first }
   end
 
-  # Helper method establishes if all incoming data is successive 
+  # Helper method establishes if all incoming data is successive
   def consecutive?(data)
     data.each_cons(2).all? { |a, b| b == a + 1 }
   end
