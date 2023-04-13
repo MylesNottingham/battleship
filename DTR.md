@@ -5,14 +5,14 @@ Your project has the potential to be amazing. The way you set expectations for c
 
 ---
 
-## Recommended Process
+### Recommended Process
 DTR with your partner BEFORE you begin work
 Return to the DTR at the end of your first working session
 Return to your DTR any time you come into a team conflict
 
 ---
 
-## BEFORE YOU START THE PROJECT
+### BEFORE YOU START THE PROJECT
 DTR: Essential Questions to Discuss
 - What are your learning goals for the project?
   - Complete the project to at least Iteration 3
@@ -131,9 +131,13 @@ Is there anything else we should know about one another before we start working?
     - We good
 
 ---
+---
 
-AFTER FIRST WEEK & ONGOING DURING PROJECT
-DTR: Check In
+## AFTER FIRST WEEK & ONGOING DURING PROJECT
+
+---
+
+### DTR: Check In
 
 Essential Questions:
 Individual Reflection
@@ -142,19 +146,21 @@ Have I been able to uphold the DTR norms we set?
   - Jesse
     - I think I have been able to uphold the norms.
   - Myles
-    -
+    - Yeah.
+
 Are there any new norms or expectations I would like to add?
   - Jesse
     - No, I think we were pretty thorough in establishing our working agreement and expectations.
   - Myles
-    -
+    - No, we were thorough up front.
 
-Do I need to give any feedback or clarify my working relationship with anyone?'
-
+Do I need to give any feedback or clarify my working relationship with anyone?
 - Jesse
     - No, I think we were pretty thorough in establishing our working agreement and expectations.
   - Myles
-    -
+    - No.
+
+---
 
 Team Discussion:
 
@@ -178,7 +184,9 @@ When will we check in again?
 
   - End of the project.
 
-IF YOU HAVE A CONFLICT
+  ---
+
+### IF YOU HAVE A CONFLICT
 DTR: Problem Solving
 
 Essential Questions:
