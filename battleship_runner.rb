@@ -27,7 +27,7 @@ loop do
     puts "INVALID INPUT"
   end
 
-  # Instantiates a new Game object, starts the game, and displays the winner at conclusion
+  # Starts the game if user inputs "P"
   # Breaks loop if user inputs "Q"
   if input == "P"
     game = Game.new
