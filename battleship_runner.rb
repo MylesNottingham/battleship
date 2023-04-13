@@ -8,6 +8,7 @@ require "./lib/cell"
 # Loop to prompt user to either play the game or quit
 # Restarts after each game concludes
 loop do
+  # Intro
   3.times { puts }
 
   puts "Welcome to BATTLESHIP\n\n"
@@ -15,8 +16,10 @@ loop do
   puts  "Enter p to play. Enter q to quit.!\n"\
         "------------------------------------------------------------------"
 
+  # Establishes valid input options
   input = nil
   valid_input = ["P", "Q"]
+  # Loop to prompt user for input until valid
   loop do
     input = gets.upcase.chomp
     break if valid_input.include?(input)
@@ -24,6 +27,8 @@ loop do
     puts "INVALID INPUT"
   end
 
+  # Starts the game if user inputs "P"
+  # Breaks loop if user inputs "Q"
   if input == "P"
     game = Game.new
     game.start

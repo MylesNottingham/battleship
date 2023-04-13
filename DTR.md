@@ -5,14 +5,14 @@ Your project has the potential to be amazing. The way you set expectations for c
 
 ---
 
-## Recommended Process
+### Recommended Process
 DTR with your partner BEFORE you begin work
 Return to the DTR at the end of your first working session
 Return to your DTR any time you come into a team conflict
 
 ---
 
-## BEFORE YOU START THE PROJECT
+### BEFORE YOU START THE PROJECT
 DTR: Essential Questions to Discuss
 - What are your learning goals for the project?
   - Complete the project to at least Iteration 3
@@ -54,14 +54,14 @@ Do you like to work alone first?
     - Establish expectations, work independently and regroup to discuss understanding
     - Do that again.
     - Work together on murky concepts or specific things that need it
-Myles
+  - Myles
     - Plan together, do some work independently, meet back up to review, repeat…
 
 Do you like to speak out loud as you are learning?
   - Jesse
-Yep.
+    - Yep.
   - Myles
-No
+    - No
 
 What do you need (resources, environment, communication) to do your best work?
   - Jesse
@@ -131,31 +131,81 @@ Is there anything else we should know about one another before we start working?
     - We good
 
 ---
+---
 
-AFTER FIRST WEEK & ONGOING DURING PROJECT
-DTR: Check In
+## AFTER FIRST WEEK & ONGOING DURING PROJECT
+
+---
+
+### DTR: Check In
+
 Essential Questions:
 Individual Reflection
+
 Have I been able to uphold the DTR norms we set?
+  - Jesse
+    - I think I have been able to uphold the norms.
+  - Myles
+    - Yeah.
+
 Are there any new norms or expectations I would like to add?
+  - Jesse
+    - No, I think we were pretty thorough in establishing our working agreement and expectations.
+  - Myles
+    - No, we were thorough up front.
+
 Do I need to give any feedback or clarify my working relationship with anyone?
+- Jesse
+    - No, I think we were pretty thorough in establishing our working agreement and expectations.
+  - Myles
+    - No.
+
+---
+
 Team Discussion:
+
 Have we been able to meet the DTR norms we set?
+
+  - We haven't had any issues meeting the guidelines set forth at the beginning.
+
 In what ways are we working well together?
+
+  - We communicate well and respect each other's availability.
+
 Are there ways we should operate differently in order to be at our best as a team?
+
+  - We think this has worked pretty well with our current setup.
+
 What do we commit to changing?
+
+  - Anything that doesn't work well.
+
 When will we check in again?
 
-IF YOU HAVE A CONFLICT
+  - End of the project.
+
+  ---
+
+### IF YOU HAVE A CONFLICT
 DTR: Problem Solving
+
 Essential Questions:
 Individual Reflection
+
 What behaviors/actions are occurring that are causing a challenge?
+
 Why are those behaviors challenging?
+
 Did we discuss those behaviors in our DTR?
+
 What language should I use to communicate this challenge?
+
 Team Discussion:
-Identify the problem/challenge that needs to be solved
+
+Identify the problem/challenge that needs to be solved:
+
 What are the behaviors happening?
+
 How could we update our DTR to address this?
+
 What actions can we all take to move forward?
