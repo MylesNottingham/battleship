@@ -5,6 +5,8 @@ class Board
     create_cells
   end
 
+  # Creates 16 new cells based on a range from A to D
+  # Iterates over new range and adds consecutive numbers to each letter
   def create_cells
     @cells = {}
     ("A".."D").each do |letter|
@@ -15,6 +17,8 @@ class Board
     end
   end
 
+  # Places ship on board after validating coordinates and ship input
+  # Adjusts the cell status of valid cordinates to represent a ship
   def place(ship, coordinates)
     return false unless valid_coordinates?(coordinates) && valid_placement?(ship, coordinates)
 
@@ -42,14 +46,19 @@ class Board
     "  #{columns} \n#{board_array.join('')}\n"
   end
 
+  #  Helper method to validate one coordinate
   def valid_coordinate?(coordinate)
     @cells.keys.include?(coordinate)
   end
 
+  #  Helper method to validate multiple coordinates
   def valid_coordinates?(coordinates)
     coordinates.all? { |coordinate| valid_coordinate?(coordinate) }
   end
 
+  # Checks ship length against empty cells
+  # If all the cells have the same first letter it will enlist consecuive helper method on numbers
+  # If all the cells have consecutive numbers it will enlist consecutive helper method on letters
   def valid_placement?(ship, coordinates)
     return false unless valid_length?(ship, coordinates) && cells_empty?(coordinates)
 
@@ -65,18 +74,22 @@ class Board
     end
   end
 
+  # Helper method measures ship length and coordinate length
   def valid_length?(ship, coordinates)
     ship.length == coordinates.length
   end
 
+  # Helper method establishes if all incoming coordinates are empty (".")
   def cells_empty?(coordinates)
     coordinates.all? { |coordinate| @cells[coordinate].status == "." }
   end
 
+  # Helper method establishes if all incoming data matches
   def all_the_same?(data)
     data.all? { |piece| piece == data.first }
   end
 
+  # Helper method establishes if all incoming data is successive 
   def consecutive?(data)
     data.each_cons(2).all? { |a, b| b == a + 1 }
   end
